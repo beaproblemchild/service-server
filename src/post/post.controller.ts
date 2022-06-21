@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Post, Res } from '@nestjs/common';
+import { Controller, Get, Body, Post, Res, Param } from '@nestjs/common';
 import { PostService } from './post.service';
 import type { addPostParams } from './post.interface';
 
@@ -13,5 +13,11 @@ export class PostController {
   @Get('/')
   getAll() {
     return this.PostService.GetAll();
+  }
+
+  @Get('/:id')
+  getSubject(@Param() params) {
+    console.log(params);
+    return this.PostService.GetSubject(Number(params.id));
   }
 }
