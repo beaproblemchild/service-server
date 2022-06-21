@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { addNewPost } from 'src/model/addNewPost';
 import { getAllList } from 'src/model/getAllList';
 import { getSubjectList } from 'src/model/getSubject';
+import { getPostById } from 'src/model/getPostById';
 import { injectData } from './post.interface';
 
 @Injectable()
@@ -37,6 +38,20 @@ export class PostService {
         data.push(doc.data());
       });
       return data;
+    } catch (err) {
+      console.log(err);
+      return err;
+    }
+  }
+
+  async GetPostById(id: string) {
+    try {
+      const snapshot = await getPostById(id);
+      let data: injectData[] = [];
+      snapshot.forEach((doc: injectData | any) => {
+        data.push(doc.data());
+      });
+      return data[0];
     } catch (err) {
       console.log(err);
       return err;

@@ -15,9 +15,13 @@ export class PostController {
     return this.PostService.GetAll();
   }
 
-  @Get('/:id')
+  @Get('/sub/:id')
   getSubject(@Param() params) {
-    console.log(params);
     return this.PostService.GetSubject(Number(params.id));
+  }
+
+  @Get('/:id')
+  getPostById(@Param() params) {
+    return this.PostService.GetPostById(params.id);
   }
 }
