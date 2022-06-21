@@ -5,8 +5,7 @@ import { addNewPost } from 'src/model/addNewPost';
 export class PostService {
   async AddNewPost(subject: number, content: string) {
     try {
-      const result = await addNewPost(subject, content);
-      console.log(result);
+      await addNewPost(subject, content);
       return true;
     } catch (err) {
       return err;
