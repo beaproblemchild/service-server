@@ -14,7 +14,7 @@ export const addNewPost = async (
     subject: subject,
     content: content,
   };
-  const path = db.collection(subject.toString()).doc(time.toString());
+  const path = db.collection('problems').doc(time.toString());
   const result = await path.set(injectData);
   return result;
 };
