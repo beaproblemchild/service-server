@@ -12,6 +12,6 @@ export class PostController {
 
   @Get('/')
   getAll() {
-    return false;
+    return this.PostService.GetAll();
   }
 }

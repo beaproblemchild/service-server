@@ -1,4 +1,6 @@
 import db from '../firebase';
-import type { injectData } from 'src/post/post.interface';
 
-export const getAllList = async () => {};
+export const getAllList = async () => {
+  const problemsRef = db.collection('problems');
+  return await problemsRef.get();
+};
