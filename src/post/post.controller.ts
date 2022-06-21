@@ -6,7 +6,7 @@ import type { addPostParams } from './post.interface';
 export class PostController {
   constructor(private readonly PostService: PostService) {}
   @Post('/add')
-  getAll(@Body() params) {
+  getAll(@Body() params: addPostParams) {
     console.log(params);
     return this.PostService.AddNewPost(params.subject, params.content);
   }
