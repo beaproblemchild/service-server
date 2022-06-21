@@ -14,3 +14,8 @@ export interface injectData {
   subject: typeof subjectList.SOCIAL | number;
   content: string;
 }
+
+export interface addPostParams {
+  subject: number;
+  content: string;
+}

@@ -1,12 +1,15 @@
 import db from '../firebase';
 import type { injectData } from 'src/post/post.interface';
+import crypto from 'crypto';
 
-const addNewPost = async (
+export const addNewPost = async (
   subject: number,
+  content: string,
 ): Promise<FirebaseFirestore.WriteResult> => {
   const time = Date.now();
+  const hash = crypto.createHash('sha256').update(time + content);
   const injectData: injectData = {
-    id: '',
+    id: hash.digest('hex'),
     time: time,
     subject: subject,
     content: '',
