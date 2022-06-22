@@ -12,6 +12,7 @@ export class PostService {
       await addNewPost(subject, content);
       return true;
     } catch (err) {
+      console.log(err);
       return err;
     }
   }
