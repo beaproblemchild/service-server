@@ -5,7 +5,7 @@ import { replyData } from './reply.interface';
 
 @Injectable()
 export class ReplyService {
-  async AddNewPost(injectData: replyData) {
+  async AddNewReply(injectData: replyData) {
     try {
       await addNewReply(injectData);
       return true;

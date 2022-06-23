@@ -18,6 +18,6 @@ export class ReplyController {
       content: Body.content,
       isAdmin: Body.isAdmin,
     };
-    return this.ReplyService.AddNewPost(injectData);
+    return this.ReplyService.AddNewReply(injectData);
   }
 }
