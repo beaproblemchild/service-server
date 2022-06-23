@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common';
+import { adminPassword } from './app.secure';
+import { createHmac } from 'crypto';
 
 @Injectable()
 export class AppService {
@@ -6,16 +8,10 @@ export class AppService {
     return 'Hello World!';
   }
 
-  adminAccess(key: string): {
-    code: string;
-  } {
-    if (key === 'bapc1234') {
-      return {
-        code: 'success',
-      };
+  adminAccess(key: string): string {
+    if (key === adminPassword) {
+      return createHmac('sha256', '').update(key).digest('base64');
     }
-    return {
-      code: 'fail',
-    };
+    return '';
   }
 }

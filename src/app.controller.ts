@@ -11,9 +11,7 @@ export class AppController {
   }
 
   @Post('/auth/:password')
-  admin(@Param() params): {
-    code: string;
-  } {
+  admin(@Param() params): string {
     return this.appService.adminAccess(params.password);
   }
 }
