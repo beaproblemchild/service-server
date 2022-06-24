@@ -7,7 +7,11 @@ export class PostController {
   constructor(private readonly PostService: PostService) {}
   @Post('/add')
   addOne(@Body() params: addPostParams) {
-    return this.PostService.AddNewPost(params.subject, params.content);
+    return this.PostService.AddNewPost(
+      params.subject,
+      params.content,
+      params.imgUrl,
+    );
   }
 
   @Get('/')

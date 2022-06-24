@@ -7,9 +7,9 @@ import { injectData } from './post.interface';
 
 @Injectable()
 export class PostService {
-  async AddNewPost(subject: number, content: string) {
+  async AddNewPost(subject: number, content: string, url: string) {
     try {
-      await addNewPost(subject, content);
+      await addNewPost(subject, content, url);
       return true;
     } catch (err) {
       console.log(err);

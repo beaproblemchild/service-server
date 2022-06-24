@@ -13,9 +13,11 @@ export interface injectData {
   time: TimeStamp;
   subject: typeof subjectList.SOCIAL | number;
   content: string;
+  imgUrl: string;
 }
 
 export interface addPostParams {
   subject: number;
   content: string;
+  imgUrl: string;
 }
